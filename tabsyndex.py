@@ -48,8 +48,8 @@ def tabsyndex(real_data, fake_data, cat_cols, target_col=-1, target_type='regr')
     return score
 
   def corr():
-    real_corr = compute_associations(real_data, nominal_columns=cat_cols, theil_u=True)
-    fake_corr = compute_associations(fake_data, nominal_columns=cat_cols, theil_u=True)
+    real_corr = compute_associations(real_data, nominal_columns=cat_cols, theil_u=True).astype(float)
+    fake_corr = compute_associations(fake_data, nominal_columns=cat_cols, theil_u=True).astype(float)
 
     real_log_corr = np.sign(real_corr)*np.log(abs(real_corr))
     fake_log_corr = np.sign(fake_corr)*np.log(abs(fake_corr))
